@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="professional.html">Professional</a>
+      <a href="personal.html">Personal</a>
+      <a href="contact.html">Contact</a>
+      <a href="experiment.html">Experiment</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <br>
+    
+    <div class="Header-renders">
+      <canvas id="myCanvas" width="1000" height="50"></canvas>
+      <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#0F9FAF";  // Set fill color to scarlet (not a standard color)
+        ctx.font = "50px Arial";   // Set font size and style
+        ctx.fillText("Hi, Welcome To My", 10, 40); // Draw the filled letter "A"
+      </script>
+      <noscript>You do not have JavaScript on or your browser does not support JS5.</noscript>
+      <br>
+      <svg width="300" height="100" viewBox="0 0 300 100">
+        <!-- Define a Gradient -->
+        <defs>
+          <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#0F9FAF; stop-opacity:1"/>  <!-- Orange-Red -->
+            <stop offset="100%" style="stop-color:#0FFFFF; stop-opacity:1"/>  <!-- Blue -->
+          </linearGradient>
+        </defs>
+      
+        <!-- Display Text -->
+        <text x="20" y="70" font-size="50" font-weight="bold" fill="url(#textGradient)" font-family="Arial, sans-serif">
+          Portfolio
+        </text>
+      </svg>
+    </div>
+
+	</header>
+
+	<main>
+    <section>
+      <picture>
+        <source srcset="images/me.webp" type="image/webp" media="(min-width:800px)" />
+        <source srcset="images/me_small.webp" type="image/webp" />
+        <source srcset="images/me.jpg" media="(min-width:800px)" />
+        <img src="images/me_small.jpg" alt="Picture of me, Alex Paz" width="220" height="300" />
+      </picture>
+
+      <h4>Bio</h4>
+		  <p>Hi, my name is <b>Alex Paz</b>, a <b>Computer Scientist!</b></p>
+    </section>
+    <hr>
+	</main>
+
+	<footer>
+    <p>This portfolio is currently <abbr>HTML</abbr> only.</p>
+    <address>
+      Alex Paz<br> 
+      Contact me at:<br>
+      linkedin.com/in/alex-paz-3b6428278<br>
+      j6paz@ucsd.edu<br>
+      Based in La Jolla, CA<br>
+      USA
+      </address>
+	</footer>
+</body>
+
+</html>

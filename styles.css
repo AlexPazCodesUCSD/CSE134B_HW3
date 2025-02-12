@@ -1,0 +1,5 @@
+body {
+  border: 5px solid black;  /* Adds a border around the entire page */
+  margin: 70px;             /* Adds space around the content */
+  padding: 20px;            /* Adds space inside the border */
+}
