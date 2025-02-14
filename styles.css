@@ -5,6 +5,10 @@ body {
   font-family: 'DM Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+#menu-toggle {
+  display: none;
+}
+
 main {
   padding: 0em 5em;
   margin: 2em;
@@ -13,35 +17,26 @@ main {
 footer {
   padding: 2em 2em;
 }
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none;
-    transition: none;
-    scroll-behavior: auto;
-  }
+
+/* Hide the checkbox */
+#menu-toggle {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: #ffffff;
-  }
+/* Style the hamburger icon */
+.hamburger {
+  display: none; /* Hide by default */
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5em;
 }
-
-@media (prefers-color-scheme: light) {
-  body {
-    background: #ffffff;
-    color: #000000;
-  }
-}
-
 
 nav {
   display: flex;
   justify-content: left; 
   background-color: #2c3e50; 
   font-family: 'DM Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  width: 100vw;
+  max-width: 100%;
 }
 
 nav a {
@@ -62,38 +57,184 @@ nav a:hover {
 #GameDevelopment,
 #Graphics,
 #Youtube,
-#Gaming {
+#Gaming { 
   display: grid;
   grid-template-columns: 1fr 2fr; /* Image takes 1/3, text takes 2/3 */
   gap: 1em;
   align-items: center;
   padding: 1.5em;
   background-color: #f8f8f8;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2em;
+  margin-bottom: 2em;
 }
 
+/* Center the form */
+.section-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em; /* Spacing between elements */
+  margin: 2em auto; /* Centers it with spacing */
+}
+
+/* Style the label */
+.section-selector label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Style the select dropdown */
+.section-selector select {
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  border: 2px solid #2c3e50;
+  border-radius: 0.5em;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Hover and focus effect */
+.section-selector select:hover,
+.section-selector select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Style optgroup labels */
+.section-selector optgroup {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Style options */
+.section-selector option {
+  font-size: 1rem;
+  padding: 0.5em;
+}
+
+.academic_calendar_container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */  
+  max-width: 100%;
+}
+
+/* General Table Styling */
+.academic_calendar {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Removes spacing between borders */
+  font-size: 1rem; /* Base font size */
+  margin: 2em 0; /* Adds space around the table */
+  table-layout: auto;
+}
+
+/* Table Caption */
+.academic_calendar caption {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1em; /* Adds spacing below caption */
+}
+
+/* Table Headers */
+.academic_calendar thead th {
+  background-color: #2c3e50; /* Dark blue-gray */
+  color: white;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Table Body */
+.academic_calendar tbody td {
+  border: 1px solid #ddd; /* Light gray borders */
+  padding: 0.8em; /* Good spacing for readability */
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Alternate Row Colors */
+.academic_calendar tbody tr:nth-child(even) {
+  background-color: #f8f8f8; /* Light gray for better contrast */
+}
+
+/* Padding & Spacing for Courses */
+.academic_calendar tbody td p {
+  margin: 0.3em 0; /* Spacing between courses */
+}
 
 /* Mobile-friendly adjustments */
 @media (max-width: 600px) {
   main {
-    grid-template-columns: 1fr; /* Stack content in one column */
+    padding: 1em;
+    max-width: 100%;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
   }
 
   nav {
+    display: none;
     flex-direction: column;
     align-items: center;
-    padding: 0px 50px;
+    width: 100%;
   }
 
-  nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0px 50px;
+  /* Show the menu when checkbox is checked */
+  #menu-toggle:checked + .hamburger + nav {
+    display: flex;
   }
-  
-  section {
-    grid-column: span 1;
+
+  .academic_calendar {
+    font-size: 0.9rem; /* Slightly smaller font */
+  }
+
+  .academic_calendar thead th {
+    font-size: 1rem;
+    padding: 0.6em;
+  }
+
+  .academic_calendar tbody td {
+    padding: 0.6em;
+  }
+
+  .section-selector select {
+    width: 80%; /* Make it wider on mobile */
+  }
+
+  #Teaching,
+  #GameDevelopment,
+  #Graphics,
+  #Youtube,
+  #Gaming {
+    display: grid;
+    grid-template-columns: 1fr; /* Image takes 1/3, text takes 2/3 */
+    gap: 1em;
+    align-items: center;
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-radius: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #ffffff;
+    color: #000000;
   }
 }
