@@ -1,12 +1,15 @@
-body {
-  border: 0em transparent;  /* Adds a border around the entire page */
-  margin: 0em;             /* Adds space around the content */
-  padding: 0em;            /* Adds space inside the border */
-  font-family: 'DM Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+:root {  /* Website theme */
+  --background-color: #ffffff;
+  --text-color: #000000;
 }
 
-#menu-toggle {
-  display: none;
+body {
+  border: 0em transparent;
+  margin: 0em;
+  padding: 0em;
+  font-family: 'DM Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 main {
@@ -28,37 +31,30 @@ footer {
 
 figure {
   text-align: center;
-  margin: 20px 0;
-}
-
-video, iframe {
-  border-radius: 8px; /* Slightly rounded corners */
-  border: 2px solid #ddd;
-  max-width: 100%; /* Ensures responsiveness */
+  margin: 2em 0;
 }
 
 hr {
   border: 1px solid #000000;
-  margin: 30px 0;
+  margin: 3em 0;
 }
 
-/* Hide the checkbox */
-#menu-toggle {
+#menu-toggle { /* Hamburger menu button*/
   display: none;
 }
 
-/* Style the hamburger icon */
-.hamburger {
-  display: none; /* Hide by default */
+.hamburger { /* Hamburger menu*/
+  display: none;
   font-size: 2rem;
   cursor: pointer;
   padding: 0.5em;
 }
 
+/* Navbar */
 nav {
   display: flex;
   justify-content: left; 
-  background-color: #2c3e50; 
+  background-color: #0f3776; 
   font-family: 'DM Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   max-width: 100%;
 }
@@ -73,10 +69,11 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 3em;
+  transform: scale(1.1);
 }
 
+/* Basic Images*/
 img {
   object-fit: contain;
   object-position: center;
@@ -87,6 +84,7 @@ img {
   border-radius: 1em;
 }
 
+/* Homepage welcome renders*/
 .Header-renders {
   width: 100%;
   display: flex;
@@ -95,16 +93,40 @@ img {
   justify-content: center;
 }
 
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+} 
+
+.Header-renders:hover canvas,
+.Header-renders:hover svg {
+  animation: shake 0.5s ease-in-out;
+}
+
 #myCanvas {
   display: block;
-  margin: 0 auto; /* Centers it horizontally */
+  margin: 0 auto; 
   padding: 0;
 }
 
 svg {
-  margin-top: -100px; /* Move SVG text closer to the canvas */
+  margin-top: -100px;
 }
 
+/* Homepage picture */
 .homePic {
   max-width: 100%;
   width: 300px;
@@ -112,6 +134,7 @@ svg {
   display: block;
 }
 
+/* Github icon */
 .githubPic {
   width: 2em;  
   height: 2em;  
@@ -119,14 +142,28 @@ svg {
   border-radius: 0.25em; 
 }
 
+/* Personal page CSS grid */
 .personal { 
   display: grid;
-  max-width: 1200px;
+  max-width: 100em;
   grid-template-columns: 1fr 2fr; 
   gap: 1em;
   align-items: center;
   padding: 1.5em;
   background-color: #f8f8f8;
+  border-radius: 2em;
+  margin: 3em auto;
+}
+
+/* Homepage CSS grid*/
+.index_container {
+  display: grid;
+  max-width: 100em;
+  grid-template-columns: 1fr 1fr; 
+  gap: 1em;
+  align-items: center;
+  padding: 1.5em;
+  justify-content: center;
   border-radius: 2em;
   margin: 3em auto;
 }
@@ -137,21 +174,7 @@ svg {
   justify-content: center;
 }
 
-.index_container {
-  display: grid;
-  max-width: 9000px;
-  grid-template-columns: 1fr 1fr; 
-  gap: 1em;
-  align-items: center;
-  padding: 1.5em;
-  justify-content: center;
-  border-radius: 2em;
-  margin: 3em auto;
-}
-
-
-
-/* Center the form */
+/* Form for selecting a section in Personal*/
 .section-selector {
   display: flex;
   flex-direction: column;
@@ -172,7 +195,7 @@ svg {
   border-radius: 0.5em;
   background-color: white;
   cursor: pointer;
-  transition: border-color 0.3s ease-in-out;
+  transition: border-color 1s ease-in-out;
 }
 
 .section-selector select:hover,
@@ -186,17 +209,14 @@ svg {
   font-weight: bold;
 }
 
-.section-selector option {
-  font-size: 1rem;
-  padding: 0.5em;
-}
-
+/* Academic calendar CSS grid*/
 .academic_calendar_container {
   width: 100%;
   overflow-x: auto;
   max-width: 100%;
 }
 
+/* Academic Calendar CSS*/
 .academic_calendar {
   width: 100%; 
   border-collapse: collapse; 
@@ -205,7 +225,6 @@ svg {
   table-layout: auto;
 }
 
-/* Table Caption */
 .academic_calendar caption {
   font-size: 1.5rem;
   font-weight: bold;
@@ -242,7 +261,7 @@ svg {
 
   .index_container {
     display: grid;
-    max-width: 9000px;
+    max-width: 100em;
     grid-template-columns: 1fr; 
     gap: 1em;
     align-items: center;
@@ -251,10 +270,19 @@ svg {
     border-radius: 2em;
     margin: 3em auto;
   }
+
+  .personal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    align-items: center;
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-radius: 1px;
+  }
 }
 
 @media (max-width: 800px) {
-
   img {
     object-fit: cover;
     object-position: center;
@@ -266,8 +294,13 @@ svg {
     max-width: 100%;
   }
 
+  /* Hamburger button and menu become visible and toggle nav when clicked*/
   .hamburger {
     display: block; 
+  }
+  
+  #menu-toggle:checked + .hamburger + nav {
+    display: flex;
   }
 
   nav {
@@ -277,35 +310,12 @@ svg {
     width: 100%;
   }
 
-  #menu-toggle:checked + .hamburger + nav {
-    display: flex;
-  }
-
-  .academic_calendar {
-    font-size: 0.9rem;
-  }
-
-  .academic_calendar thead th {
-    font-size: 1rem;
-    padding: 0.6em;
-  }
-
   .academic_calendar tbody td {
     padding: 0.6em;
   }
 
   .section-selector select {
     width: 80%; 
-  }
-
-  .personal {
-    display: grid;
-    grid-template-columns: 1fr; /* Image takes 1/3, text takes 2/3 */
-    gap: 1em;
-    align-items: center;
-    padding: 1em;
-    background-color: #f8f8f8;
-    border-radius: 1px;
   }
 }
 
@@ -318,15 +328,15 @@ svg {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: #ffffff;
+  :root {
+    --background-color: #121212;
+    --text-color: #ffffff;
   }
 }
 
 @media (prefers-color-scheme: light) {
-  body {
-    background: #ffffff;
-    color: #000000;
+  :root {
+    --background-color: #ffffff;
+    --text-color: #000000;
   }
 }
