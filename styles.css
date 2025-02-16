@@ -14,8 +14,32 @@ main {
   margin: 2em;
 }
 
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
 footer {
   padding: 2em 2em;
+}
+
+figure {
+  text-align: center;
+  margin: 20px 0;
+}
+
+video, iframe {
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 2px solid #ddd;
+  max-width: 100%; /* Ensures responsiveness */
+}
+
+hr {
+  border: 1px solid #000000;
+  margin: 30px 0;
 }
 
 /* Hide the checkbox */
@@ -53,37 +77,94 @@ nav a:hover {
   border-radius: 3em;
 }
 
-#Teaching,
-#GameDevelopment,
-#Graphics,
-#Youtube,
-#Gaming { 
+img {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  max-width: 100%; 
+  height: auto;
+  display: block;
+  border-radius: 1em;
+}
+
+.Header-renders {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#myCanvas {
+  display: block;
+  margin: 0 auto; /* Centers it horizontally */
+  padding: 0;
+}
+
+svg {
+  margin-top: -100px; /* Move SVG text closer to the canvas */
+}
+
+.homePic {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+.githubPic {
+  width: 2em;  
+  height: 2em;  
+  display: block; 
+  border-radius: 0.25em; 
+}
+
+.personal { 
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Image takes 1/3, text takes 2/3 */
+  max-width: 1200px;
+  grid-template-columns: 1fr 2fr; 
   gap: 1em;
   align-items: center;
   padding: 1.5em;
   background-color: #f8f8f8;
   border-radius: 2em;
-  margin-bottom: 2em;
+  margin: 3em auto;
 }
+
+.index_container picture {
+  width: 100%; 
+  display: block;
+  justify-content: center;
+}
+
+.index_container {
+  display: grid;
+  max-width: 9000px;
+  grid-template-columns: 1fr 1fr; 
+  gap: 1em;
+  align-items: center;
+  padding: 1.5em;
+  justify-content: center;
+  border-radius: 2em;
+  margin: 3em auto;
+}
+
+
 
 /* Center the form */
 .section-selector {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5em; /* Spacing between elements */
-  margin: 2em auto; /* Centers it with spacing */
+  gap: 0.5em; 
+  margin: 2em auto; 
 }
 
-/* Style the label */
 .section-selector label {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-/* Style the select dropdown */
 .section-selector select {
   font-size: 1rem;
   padding: 0.5em 1em;
@@ -94,20 +175,17 @@ nav a:hover {
   transition: border-color 0.3s ease-in-out;
 }
 
-/* Hover and focus effect */
 .section-selector select:hover,
 .section-selector select:focus {
   border-color: #007bff;
   outline: none;
 }
 
-/* Style optgroup labels */
 .section-selector optgroup {
   font-size: 1rem;
   font-weight: bold;
 }
 
-/* Style options */
 .section-selector option {
   font-size: 1rem;
   padding: 0.5em;
@@ -115,16 +193,15 @@ nav a:hover {
 
 .academic_calendar_container {
   width: 100%;
-  overflow-x: auto; /* Enables horizontal scrolling */  
+  overflow-x: auto;
   max-width: 100%;
 }
 
-/* General Table Styling */
 .academic_calendar {
-  width: 100%; /* Full width */
-  border-collapse: collapse; /* Removes spacing between borders */
-  font-size: 1rem; /* Base font size */
-  margin: 2em 0; /* Adds space around the table */
+  width: 100%; 
+  border-collapse: collapse; 
+  font-size: 1rem; 
+  margin: 2em 0; 
   table-layout: auto;
 }
 
@@ -132,45 +209,65 @@ nav a:hover {
 .academic_calendar caption {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1em; /* Adds spacing below caption */
+  margin-bottom: 1em; 
 }
 
-/* Table Headers */
 .academic_calendar thead th {
-  background-color: #2c3e50; /* Dark blue-gray */
+  background-color: #2c3e50; 
   color: white;
   padding: 1em;
   text-align: center;
   font-size: 1.1rem;
 }
 
-/* Table Body */
 .academic_calendar tbody td {
-  border: 1px solid #ddd; /* Light gray borders */
-  padding: 0.8em; /* Good spacing for readability */
+  border: 1px solid #ddd; 
+  padding: 0.8em;
   text-align: center;
   font-size: 1rem;
 }
 
-/* Alternate Row Colors */
 .academic_calendar tbody tr:nth-child(even) {
-  background-color: #f8f8f8; /* Light gray for better contrast */
+  background-color: #f8f8f8; 
 }
 
-/* Padding & Spacing for Courses */
 .academic_calendar tbody td p {
-  margin: 0.3em 0; /* Spacing between courses */
+  margin: 0.3em 0;
 }
 
-/* Mobile-friendly adjustments */
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
+  .homePic {
+    display: none;
+  }
+
+  .index_container {
+    display: grid;
+    max-width: 9000px;
+    grid-template-columns: 1fr; 
+    gap: 1em;
+    align-items: center;
+    padding: 1.5em;
+    justify-content: center;
+    border-radius: 2em;
+    margin: 3em auto;
+  }
+}
+
+@media (max-width: 800px) {
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
   main {
     padding: 1em;
     max-width: 100%;
   }
 
   .hamburger {
-    display: block; /* Show hamburger icon on mobile */
+    display: block; 
   }
 
   nav {
@@ -180,13 +277,12 @@ nav a:hover {
     width: 100%;
   }
 
-  /* Show the menu when checkbox is checked */
   #menu-toggle:checked + .hamburger + nav {
     display: flex;
   }
 
   .academic_calendar {
-    font-size: 0.9rem; /* Slightly smaller font */
+    font-size: 0.9rem;
   }
 
   .academic_calendar thead th {
@@ -199,14 +295,10 @@ nav a:hover {
   }
 
   .section-selector select {
-    width: 80%; /* Make it wider on mobile */
+    width: 80%; 
   }
 
-  #Teaching,
-  #GameDevelopment,
-  #Graphics,
-  #Youtube,
-  #Gaming {
+  .personal {
     display: grid;
     grid-template-columns: 1fr; /* Image takes 1/3, text takes 2/3 */
     gap: 1em;
