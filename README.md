@@ -1,3 +1,3 @@
-# CSE134B-SS20-HW1
+# CSE134B-HW3
 # Name: Alex Paz
 # PID: A16900476
